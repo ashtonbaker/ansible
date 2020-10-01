@@ -1,9 +1,14 @@
 - hosts: localhost
   become: true
   tasks:
-  - name: Install packages
-    dnf: name={{ item }}
-    with_items:
-        - htop
-        - mc
-        - tmux
+  - name: general packages
+    dnf: name: ['htop', 'mc', 'tmux', 'stow']
+
+  - name: editor stuff
+    dnf: name: ['emacs']
+
+  - name: javascript development
+    dnf: name: ['nvm', 'yvm']
+
+  - name: haskell development
+    dnf: name: ['stack']
