@@ -3,20 +3,20 @@
   tasks:
   - name: general packages
     dnf:
-    - name: ['htop', 'mc', 'tmux', 'stow']
-    - state: present
+      name: ['htop', 'mc', 'tmux', 'stow']
+      state: present
 
   - name: editor stuff
     dnf:
-    - name: ['emacs']
-    - state: present
+      name: ['emacs']
+      state: present
 
   - name: javascript development
-    - dnf:
-      - name: ['nvm', 'yvm']
-      - state: present
+    dnf:
+      name: ['nvm', 'yvm']
+      state: present
 
   - name: haskell development
     dnf:
-    - name: ['stack']
-    - state: present
+      name: ['stack']
+      state: present
