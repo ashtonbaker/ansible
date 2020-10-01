@@ -2,13 +2,21 @@
   become: true
   tasks:
   - name: general packages
-    dnf: name: ['htop', 'mc', 'tmux', 'stow']
+    dnf:
+    - name: ['htop', 'mc', 'tmux', 'stow']
+    - state: present
 
   - name: editor stuff
-    dnf: name: ['emacs']
+    dnf:
+    - name: ['emacs']
+    - state: present
 
   - name: javascript development
-    dnf: name: ['nvm', 'yvm']
+    - dnf:
+      - name: ['nvm', 'yvm']
+      - state: present
 
   - name: haskell development
-    dnf: name: ['stack']
+    dnf:
+    - name: ['stack']
+    - state: present
