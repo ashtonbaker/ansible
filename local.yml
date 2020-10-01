@@ -11,10 +11,18 @@
       name: ['emacs']
       state: present
 
-  - name: javascript development
-    dnf:
-      name: ['nvm', 'yvm']
-      state: present
+  - name: nvm
+    shell: >
+      curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.36.0/install.sh | bash
+    args:
+      creates: "{{ ansible_env.HOME }}/.nvm/nvm.sh"
+    register: nvm_installation
+
+  - name: yvm
+    shell: >
+      curl -s https://raw.githubusercontent.com/tophat/yvm/master/scripts/install.js | node
+    when: nvm_installation is succeeded
+
 
   - name: haskell development
     dnf:
